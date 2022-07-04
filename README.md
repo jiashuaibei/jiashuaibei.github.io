@@ -1,120 +1,62 @@
-# 认识并安装WSL（基于Windows的Linux子系统）
+# 欢迎来到郏帅北的主页
+**此站点架设在GitHub，我的代码项目也都是托管在它上面。国内的gitee作为镜像。**
+## 关于我
+- 我在机器人工程专业，学习嵌入式和计算机，喜欢物理学和航天。
+- 我喜欢钻研计算机知识比如：Python、C、Docker、HTTP、Linux、网站建设、JavaScript……都很有兴趣。
+- 日常我学习嵌入式系统，单片机里比如：C51、STM32、Arduino……以及我最爱的 Raspberry Pi（树莓派）
+## 我的知识库
+- **GitHub**：https://github.com/jiashuaibei
+- **Gitee**: https://gitee.com/jiashuaibei
+- **语雀**: https://yuque.com/jiashuaibei
+## 我的推荐
 
+- **稚晖君**
 
+哔哩哔哩：https://space.bilibili.com/20259914/?spm_id_from=333.999.0.0
 
-## 什么是WSL
+GitHub:https://github.com/peng-zhihui
 
-WSL（Windows Subsystem for Linux），这是在windows平台运行的linux子系统。也就是说可是不用安装虚拟机的情况下获得相对完整的linux系统体验。
+全栈工程师，野生钢铁侠，我的偶像。
 
-## WSL相比于虚拟机（eg：VMware、Virtualbox）
+华为天才少年，毕业于电子科技大学，目前在华为昇腾实验室做算法研究。
 
-**优点**：
+只要他想的东西，都可以造出来。从设计电路板开始的那种。
 
--  轻量化，最大程度减少了电脑负担并且可以体验接近原生的Linux环境。
--  可以实现Linux与Windows系统的文件互通。windows文件挂载在wsl的 /mnt 目录下。
+- **菜鸟教程**
 
-**缺点**：
+菜鸟教程：https://www.runoob.com/
 
-- IP地址不固定。
-- wsl和windows住在同一个房子里，如果windows系统损伤会直接影响wsl，但是虚拟机会有快照功能。
-- 不是百分百的Linux环境。
+Run noob！奔跑吧！菜鸟。
 
-## WSL版本介绍
+高质量的计算机知识教程。涵盖几乎所有知识。
 
-- WSL1：初代版本，WSL1使用翻译层将 linux 系统调用转化成 windows 系统调用，没有使用的 VM，不支持内核程序。更像是一个轻量化Linux模拟器而非虚拟环境。
-- WSL2：WSL2使用了一个轻量级的、无需维护的虚拟机，并在这个虚拟机中运行了一个完整的 linux 内核，可以运行比如Docker等程序。WSL 2 使用一个 VHD 虚拟磁盘文件作为 linux 发行版的根目录，其中使用 ext4文件系统格式，极大提升了IO性能。但是 WSL 2 使用了 Hyper-V，由于兼容性原因不能运行 WSL2和VMWare或VirtualBox（听说VMware&Virtualbox的新版本里解决了此问题，我没测试过。），WSL 1 不存在此问题。
+- **阮一峰**
 
-**个人建议安装WSL2，体验更接近虚拟机的Linux环境**
+个人博客：https://ruanyifeng.com
 
-## 安装WSL & 更新WSL2内核
+GitHub：https://github.com/ruanyifeng
 
-**声明**：WSL在windows10个别较低版本以及Windows以下版本无法安装（大多数Windows10以及所有Windows11电脑都满足安装条件）
+就是很强，高质量博客的持续内容输出。
 
-### 安装WSL
+- **程序员鱼皮**
 
-1.点击窗口按钮，搜索“启用或关闭Windows功能”并打开：
+GitHub：https://github.com/liyupi
 
-![image-20220519050719517](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519050719517.png)
+编程导航：https://home.code-nav.cn/
 
-2.勾选“适用于Linux的Windows子系统”&“虚拟机平台”，点击确定，选择“暂不重启”。
+就职于腾讯，知名up，有意思，可以从他这里了解到知识之外的事情。
 
-![image-20220519050910129](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519050910129.png)
+- **廖雪峰**
 
-3.点击窗口按钮，搜索“开发者设置”并进入，之后打开“开发人员模式”。
+廖雪峰的官方网站：https://www.liaoxuefeng.com/
 
-![image-20220519051217712](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519051217712.png)
+GitHub：https://github.com/michaelliao
 
-4.重新启动电脑。等待WSL组件的安装完成。
+学习各种计算机知识，同样是高质量博客。
 
-5.安装完成之后可以在文件资源管理器看到WSL子系统的文件目录。
+## 我的联系方式：
 
-![image-20220519051430272](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519051430272.png)
-
-### 更新WSL2内核
-
-1.下载内核文件：
-
-- 微软官方渠道：https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-- 我的百度网盘链接：https://pan.baidu.com/s/1Qe2ECh6lgdtsU0re4tfYwg 
-  提取码：0214
-
-2.双击安装包根据提示进行安装，之后点击 Finsh 完成安装。
-
-![image-20220519051940286](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519051940286.png)
-
-3.鼠标在窗口按钮处点击右键，点击Windows终端（管理员）
-
-![image-20220519052117380](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519052117380.png)
-
-之后在打开的终端输入以下命令对WSL进行更新。
-
-```
-wsl --update
-```
-
-再之后输入以下命令将WSL2设为默认版本。
-
-```
-wsl --set-default-version 2
-```
-
-![image-20220519052712364](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519052712364.png)
-
-## 安装Linux发行版
-
-1.打开Microsoft Store（微软商店），搜索Linux，结果中有几种Linux发行版: Ubuntu(22.04、20.04.4、18.04)、Debian、OpenSUSE、Oracle Linux、Kali Linux（黑客Linux系统，慎用！）
-
-**小科普**：
-
-- Linux发行版=Linux（Kernel）内核+（Free Software）自由软件+Tools（工具）+可完整安装程序
-- 所有的Linux发行版都使用同样的Linux内核（Linux内核网站https://www.kernel.org/），这就相当于同样是汽车，内部的构造、引擎都是基本相同的，但是车的外壳、外观……是不同的。
-
-我个人推荐Debian或者Ubuntu，Debian最纯净，Ubuntu基于Debian并且安装包里工具更多较为省事。（Ubuntu目前安装22.04的最新版本可能会不稳定，推荐安装20.04.4）
-
-![image-20220519053341880](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519053341880.png)
-
-2.选中自己喜欢的发行版本，获取、安装即可。（如果由于网络问题造成获取或者安装的失败，那就关闭微软商店重新进入，点击重试，多试几次会成功的）
-
-![image-20220519053836626](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519053836626.png)
-
-## 打开WSL安装的Linux发行版
-
-打开安装完成的Linux，会进入终端（就这个黑色命令行框框），进行初始化：Installing……
-
-![image-20220519054102761](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519054102761.png)
-
-之后根据提示注册自己的用户名和密码，完成初始配置，开始使用Linux
-
-![image-20220519054339111](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519054339111.png)
-
-### 对于Windows10用户（安装Windows Terminal）
-
-这个黑色的命令行框框叫做终端，也是使用Linux的界面。
-
-Windows10默认可能是cmd或者powershell，界面不太美观，建议安装Windows Terminal（Windows新款的终端，界面美观，功能强大，自定义程度高。）。直接去微软商店搜索并安装即可。
-
-![image-20220519054640332](https://picwh-1310027666.cos.ap-shanghai.myqcloud.com/img/image-20220519054640332.png)
-
-Windows11已经自带此程序。
-
-**安装完成！**
+- 微信：AEANSH
+- QQ：3337267159
+- 邮箱：jiashuaibei@foxmail.com
+- Twitter: shuaibei.jia@gmail.com
