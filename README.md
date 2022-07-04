@@ -5,8 +5,8 @@
 - 我喜欢钻研计算机知识比如：Python、C、Docker、HTTP、Linux、网站建设、JavaScript……都很有兴趣。
 - 日常我学习嵌入式系统，单片机里比如：C51、STM32、Arduino……以及我最爱的 Raspberry Pi（树莓派）
 ## 我的知识库
-- [GitHub]: https://github.com/jiashuaibei
-- [Gitee]: https://gitee.com/jiashuaibei
+- GitHub:https://github.com/jiashuaibei
+- Gitee:https://gitee.com/jiashuaibei
 - **语雀**: https://yuque.com/jiashuaibei
 ## 我的推荐
 
